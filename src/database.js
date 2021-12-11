@@ -7,6 +7,7 @@ mongoose
     keepAlive: true,
     useNewUrlParser: true,
     useUniFiedTopology: true
+    // useCreateIndex: true
   })
   .then(db => console.log('DB is connected'))
   .catch(error => console.log(error))
