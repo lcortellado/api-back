@@ -1,8 +1,10 @@
 import express from 'express'
 import morgan from 'morgan'
 const multer = require('multer')
+import { createRoles } from './libs/initialSetup'
 //
 const app = express()
+createRoles()
 
 import productsRoutes from './routes/products.routes'
 import authRoutes from './routes/auth.routes'
