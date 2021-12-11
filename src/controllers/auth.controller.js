@@ -5,7 +5,6 @@ import Role from '../models/Role'
 
 export const signUp = async (req, res) => {
   const { username, email, password, roles } = req.body
-  console.log(username, email, password)
 
   const newUser = new User({
     username,
@@ -15,9 +14,11 @@ export const signUp = async (req, res) => {
   if (roles) {
     //Search the collection if the role exists and we save the id
     const foundRoles = await Role.find({ name: { $in: roles } })
+
     newUser.roles = foundRoles.map(role => role._id)
   } else {
     const role = await Role.findOne({ name: 'user' })
+
     newUser.roles = [role._id]
   }
   const saveUser = await newUser.save()

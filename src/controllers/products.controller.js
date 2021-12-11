@@ -1,9 +1,7 @@
 import Product from '../models/Product'
 
 exports.createProduct = async (req, res) => {
-  console.log('entra aca', req.body)
   const { name, category, price, imgUrl } = req.body
-  console.log(req.body)
 
   const newProduct = new Product({ name, category, price, imgUrl })
   const productSaved = await newProduct.save()
