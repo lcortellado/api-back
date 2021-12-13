@@ -10,7 +10,7 @@ exports.createProduct = async (req, res) => {
 }
 
 export const getProducts = async (req, res) => {
-  const products = await Product.find()
+  const products = await Product.paginate({})
   res.json(products)
 }
 

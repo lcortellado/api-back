@@ -6,7 +6,12 @@ import { authJwt, verifySignup } from '../middlewares'
 
 router.post(
   '/',
-  [authJwt.verifyToken, authJwt.isAdmin, verifySignup.checkRolesExisted],
+  [
+    authJwt.verifyToken,
+    authJwt.isAdmin,
+    verifySignup.checkDuplicateUsernameOrEmail,
+    verifySignup.checkRolesExisted
+  ],
   userCtrl.createUser
 )
 
